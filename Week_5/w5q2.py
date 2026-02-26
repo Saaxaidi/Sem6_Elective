@@ -1,33 +1,26 @@
-import random
 import time
-import itertools
 
-def generate_password(length):
-    """Generate a random numeric password of given length."""
-    return ''.join(str(random.randint(0, 9)) for _ in range(length))
+def bf(pwd):
+    length=len(pwd)
+    attempt =0
 
-def brute_force(password):
-    """Attempt to brute force the given numeric password."""
-    length = len(password)
-    attempts = 0
-    start_time = time.time()
+    start_time =time.time()
 
-    # Generate all possible combinations
-    for guess in itertools.product('0123456789', repeat=length):
-        attempts += 1
-        guess_password = ''.join(guess)
+    max_num = pow(10,length)
 
-        if guess_password == password:
-            end_time = time.time()
-            print(f"\nPassword Cracked: {guess_password}")
-            print(f"Total Attempts: {attempts}")
-            print(f"Time Taken: {end_time - start_time:.4f} seconds")
-            break
+    for num in range(max_num):
+        attempt+=1
 
+        guess=str(num).zfill(length)
 
-# Test for 4, 6, and 8 digit passwords
-for length in [4, 6, 8]:
-    print(f"\n--- Testing {length}-digit Password ---")
-    pwd = generate_password(length)
-    print("Generated Password (hidden in real attack):", pwd)
-    brute_force(pwd)
+        if guess==pwd:
+            end_time=time.time()
+            print("pwd creacked")
+            print("password: ",guess)
+            print("attempt: ",attempt)
+            print("time taken : ",round(end_time-start_time,4),"sec")
+            return
+    print("pwd not found!")
+
+pwd =input("enter the numeric password(4,6,8) digits: ")
+bf(pwd)
