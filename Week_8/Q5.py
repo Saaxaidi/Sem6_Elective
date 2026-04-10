@@ -32,4 +32,4 @@ print("Encrypted Cipher:", c)
 
 # Step 7: Decryption: M = C^d mod n
 decrypted = power_mod(c, d, n)
-print("Decrypted Message:", decrypted)
+print("Decrypted Message:", decrypted) 
