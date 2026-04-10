@@ -9,7 +9,7 @@ message = b'Hello World'
 
 print("Message:", message.decode())
 
-# 🔸 Create HMAC using SHA-256
+# Create HMAC using SHA-256
 hmac_obj = hmac.new(key, message, hashlib.sha256)
 
 # Generate HMAC (digest)
