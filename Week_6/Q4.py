@@ -53,21 +53,21 @@ def decrypt(cipher):
 # -------- File Handling --------
 
 # Read input file
-with open("input.txt", "r") as f:
+with open("Week_6/input.txt", "r") as f:
     text = f.read()
 
 # Encrypt
 encrypted = encrypt(text)
 
 # Save encrypted text
-with open("encrypted.txt", "w") as f:
+with open("Week_6/encrypted.txt", "w") as f:
     f.write(encrypted)
 
 # Decrypt
 decrypted = decrypt(encrypted)
 
 # Save decrypted text
-with open("decrypted.txt", "w") as f:
+with open("Week_6/decrypted.txt", "w") as f:
     f.write(decrypted)
 
 print("Encryption & Decryption Done!")
